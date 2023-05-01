@@ -23,6 +23,13 @@ export default function Home() {
     }
   };
 
+//   const deleteTodo = (todo: any) => {
+//     todoList.splice;
+  
+//  }
+
+
+
   return (
     <>
       <div className="bg-teal-500 p-2">
@@ -58,8 +65,9 @@ export default function Home() {
             <button
               type="submit"
               className="ml-3 px-2 py-1 bg-rose-500 text-white font-bold rounded hover:stroke-slate-800 hover:bg-blue-400 hover:text-black"
+              onClick={deleteTodo}
             >
-              Delete{" "}
+              Delete
             </button>
             <br />
           </>
