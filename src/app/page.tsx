@@ -6,14 +6,22 @@ export default function Home() {
   const [Todo, setTodo] = useState("");
   const [todoList, setTodoList] = useState([""]);
 
+  // let event: any = null;
+
+  // let InputTxt: any = HandleInputTodo(event?.target.value);
+
   function HandleInputTodo(event: any) {
     setTodo(event.target.value);
   }
 
-  function addTodolist() {
-    setTodoList([...todoList, Todo]);
-    setTodo("");
-  }
+  const addTodolist = () => {
+    if (Todo === "") {
+      alert("Todo is Null You F***in Idiot");
+    } else {
+      setTodoList([...todoList, Todo]);
+      setTodo("");
+    }
+  };
 
   return (
     <>
@@ -47,6 +55,12 @@ export default function Home() {
             <label className="text-green-400 text-2xl font-extrabold">
               {todo}
             </label>
+            <button
+              type="submit"
+              className="ml-3 px-2 py-1 bg-rose-500 text-white font-bold rounded hover:stroke-slate-800 hover:bg-blue-400 hover:text-black"
+            >
+              Delete{" "}
+            </button>
             <br />
           </>
         ))}
