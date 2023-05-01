@@ -23,12 +23,20 @@ export default function Home() {
     }
   };
 
-//   const deleteTodo = (todo: any) => {
-//     todoList.splice;
-  
-//  }
+  const deleteTodo = (index:any) => {
+    const updatedTodolist = [...todoList];
+    updatedTodolist.splice(index, 1);
+    setTodoList(updatedTodolist);
+  };
+
+  // const CheckboxClick  = (index: any) => {
+    
+  //   const updatedTodolist = [...todoList];
+  //   updatedTodolist[index].checked = !updatedTodolist[index].checked;
 
 
+
+  // }
 
   return (
     <>
@@ -51,24 +59,26 @@ export default function Home() {
         </div>
       </div>
       <div>
-        {todoList.map((todo: any) => (
+        {todoList.map((todo: any, index) => (
           <>
-            <input
+            <input 
+              key={index}
               type="checkbox"
               name="check-box"
               id=""
+              // checked={todo.checked}
+             // disabled={todo.disabled}
+             // onChange={() => CheckboxClick(index)}
               className="h-5 w-5 m-3 "
             />
             <label className="text-green-400 text-2xl font-extrabold">
               {todo}
             </label>
             <button
+            key={index}
               type="submit"
               className="ml-3 px-2 py-1 bg-rose-500 text-white font-bold rounded hover:stroke-slate-800 hover:bg-blue-400 hover:text-black"
-              onClick={deleteTodo}
-            >
-              Delete
-            </button>
+              onClick={() => deleteTodo(index) }> Delete </button>
             <br />
           </>
         ))}
